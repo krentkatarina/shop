@@ -18,12 +18,12 @@ const Footer = () => {
                 Developed by <a href="https://www.youtube.com" rel="noreferrer" target="_blank">Krent Katarina</a>
             </div>
             <div className={styles.socials}>
-                <a href="https://www.youtube.com" className="icon">
+                <a href="https://www.instagram.com" className="icon">
                     <svg className="icon">
                         <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#instagram`} />
                     </svg>
                 </a>
-                <a href="https://www.youtube.com" className="icon">
+                <a href="https://www.facebook.com" className="icon">
                     <svg className="icon">
                         <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#facebook`} />
                     </svg>

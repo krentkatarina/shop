@@ -27,6 +27,7 @@ const Home = () => {
         <Categories products={categories.list} amount={5} title="Worth seeing"  />
         <Banner/>
         <Products products={filtered} amount={5} title="Less than 100$"  />
+        <Products products={list} amount={50} title="More"  />
        </>
     ) 
 }
