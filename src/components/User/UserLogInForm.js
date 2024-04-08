@@ -4,28 +4,33 @@ import { loginUser  } from "../../features/user/userSlice";
 import { useDispatch} from 'react-redux'
 
 
-const UserLogInForm = ({ toggleCurrentFormType, closeForm}) => {
-    const dispatch = useDispatch();
-    const [values, setValues] = useState({
+const UserLogInForm = ({ toggleCurrentFormType, closeForm, setHasUnsavedChanges}) => {
+  const dispatch = useDispatch();
+  const [values, setValues] = useState({
       email: "",
       password: "",
-    });
-  
-    const handleChange = ({ target: { value, name } }) => {
+  });
+
+  const handleChange = ({ target: { value, name } }) => {
       setValues({ ...values, [name]: value });
-    };
-  
-    const handleSubmit = (e) => {
+      setHasUnsavedChanges(!Object.values({ ...values, [name]: value }).every((val) => val));
+  };
+
+  const handleSubmit = (e) => {
       e.preventDefault();
-  
+
       const isNotEmpty = Object.values(values).every((val) => val);
-  
-      if (!isNotEmpty) return;
-  
+
+      if (!isNotEmpty) {
+          setHasUnsavedChanges(true);
+          return;
+      }
+
       dispatch(loginUser(values));
       closeForm();
-    };
-  
+  };
+
+
     return (
       <div className={styles.wrapper}>
         <div className={styles.close} onClick={closeForm}>

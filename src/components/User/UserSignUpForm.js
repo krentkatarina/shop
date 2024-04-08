@@ -4,31 +4,34 @@ import { createUser } from "../../features/user/userSlice";
 import { useDispatch} from 'react-redux'
 
 
-const UserSignUpForm = ( {toggleCurrentFormType, closeForm}) => {
-   
-    const dispatch = useDispatch();
-    const [values, setValues] = useState({
+
+const UserSignUpForm = ({ toggleCurrentFormType, closeForm, setHasUnsavedChanges }) => { // Принимаем setHasUnsavedChanges через пропс
+  const dispatch = useDispatch();
+  const [values, setValues] = useState({
       name: "",
       email: "",
       password: "",
       avatar: "",
-    });
-  
-    const handleChange = ({ target: { value, name } }) => {
+  });
+
+  const handleChange = ({ target: { value, name } }) => {
       setValues({ ...values, [name]: value });
-    };
-  
-    const handleSubmit = (e) => {
+      setHasUnsavedChanges(!Object.values({ ...values, [name]: value }).every((val) => val)); // Используем setHasUnsavedChanges
+  };
+
+  const handleSubmit = (e) => {
       e.preventDefault();
-  
+
       const isNotEmpty = Object.values(values).every((val) => val);
-  
-      if (!isNotEmpty) return;
-  
+
+      if (!isNotEmpty) {
+          setHasUnsavedChanges(true);
+          return;
+      }
+
       dispatch(createUser(values));
       closeForm();
-    };
-  
+  };
     return (
       <div className={styles.wrapper}>
         <div className={styles.close} onClick={closeForm}>
