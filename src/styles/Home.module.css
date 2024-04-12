@@ -40,6 +40,7 @@
     position: relative;
     flex-grow: 1;
     height: 250px;
+   
   }
   
   .image img {
@@ -47,8 +48,26 @@
     bottom: -15%;
     right: 10%;
     max-width: unset;
+    width: 100%;
+    object-fit: cover;
+    min-width: 150px;
   }
-  
+/*   
+  @media(max-width:768px){
+    .title {
+      
+      font-size: 80px;
+      line-height: 90px;
+    }
+  }
+  @media(max-width:1024px) {
+    .title {
+      font-size: 80px;
+      line-height: 90px;
+     text-align: start;
+     margin: 0 0 0 50px;
+    }
+  } */
   .banner {
     display: flex;
     width: 100%;

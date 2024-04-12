@@ -5,7 +5,16 @@
     display: flex;
     flex-direction: column;
   }
-  
+  @media(max-width: 720px) {
+    .sidebar {
+      max-width: 720px;
+      width: 100%;
+      padding: 24px;
+      height: 423px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
   .title {
     font-weight: 600;
     line-height: 20px;

@@ -3,8 +3,21 @@
     display: flex;
     align-items: center;
     padding: 25px 20px;
+    margin: 0 0 15px 0;
   }
   
+  @media(max-width:480px) {
+    .header {
+      flex-direction: column;
+    }
+    info {
+      flex-direction: column;
+    }
+    .logo img {
+      width: 100px;
+    }
+  }
+
   .logo {
     width: 304px;
   }

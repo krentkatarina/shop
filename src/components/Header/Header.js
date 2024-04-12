@@ -52,13 +52,13 @@ const handleSearch = ({target: {value}} ) => {
             </div>
 
             <div className={styles.info}>
-        <div className={styles.user} onClick={handleClick}>
-          <div
-            className={styles.avatar}
-            style={{ backgroundImage: `url(${values.avatar})` }}
-          />
-          <div className={styles.username}>{values.name}</div>
-        </div>
+                <div className={styles.user} onClick={handleClick}>
+                    <div
+                        className={styles.avatar}
+                        style={{ backgroundImage: `url(${values.avatar})` }}
+                    />
+                <div className={styles.username}>{values.name}</div>
+            </div>
                 <form className={styles.form}>
                     <div className={styles.icon}>
                         <svg className="icon">
